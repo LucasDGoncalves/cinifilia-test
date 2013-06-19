@@ -49,7 +49,7 @@ $(document).ready(function(){
 
   // Carregar informações dos filmes
   $.ajax({
-    url: '192.168.0.13/helper-cinefilia/movies.json',
+    url: 'http://192.168.0.13/helper-cinefilia/movies.json',
     dataType: 'jsonp',
     jsonpCallback: 'cineffiliamoviescache',
     success: function(data){
@@ -61,7 +61,7 @@ $(document).ready(function(){
   
   // Carregar informações dos cinemas
   $.ajax({
-    url: '192.168.0.13/helper-cinefilia/cinemas.json',
+    url: 'http://192.168.0.13/helper-cinefilia/cinemas.json',
     dataType: 'jsonp',
     jsonpCallback: 'cineffiliacinemascache',
     success: function(data){
