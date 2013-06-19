@@ -94,7 +94,7 @@ $(document).ready(function(){
       }
 		})
 			
-  $("#exit").click(function(){
+  $(name="exit").click(function(){
     navigator.app.exitApp()
   })
     
@@ -186,4 +186,10 @@ var startTest = function() {
 			});
 		};
 
-document.addEventListener('deviceready', startTest, false);
+if (typeof(cordova) !== 'undefined') {
+  // cordova test
+  document.addEventListener('deviceready', startTest, false);
+} else {
+  // normal browser test
+  $(document).ready(startTest);
+}
