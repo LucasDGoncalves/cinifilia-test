@@ -94,6 +94,10 @@ $(document).ready(function(){
       }
 		})
 			
+  $("#exit").click(function(){
+    navigator.app.exitApp()
+  })
+    
   $("#src").click(function(){
     //filtra os filmes
     clearSearch();
