@@ -190,10 +190,8 @@ var startTest = function() {
 
 if (typeof(cordova) !== 'undefined') {
   // cordova test
-  alert('to no cordova')
   document.addEventListener('deviceready', startTest, false);
 } else {
   // normal browser test
-  alert('to no browser')
   $(document).ready(startTest);
 }
