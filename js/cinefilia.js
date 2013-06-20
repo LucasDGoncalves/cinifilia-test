@@ -96,7 +96,6 @@ $(document).ready(function(){
 		})
 			
   $('[name="exit"]').click(function(){
-    alert('to saindo');
     navigator.app.exitApp()
   })
     
@@ -195,6 +194,6 @@ if (typeof(cordova) !== 'undefined') {
   document.addEventListener('deviceready', startTest, false);
 } else {
   // normal browser test
-  //alert('to no browser')
+  alert('to no browser')
   $(document).ready(startTest);
 }
