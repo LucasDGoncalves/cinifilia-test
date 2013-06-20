@@ -49,19 +49,20 @@ $(document).ready(function(){
 
   // Carregar informações dos filmes
   $.ajax({
-    url: 'http://www.students.ic.unicamp.br/~ra108231/cinefilia_supreme_api/movies.json',
+    url: 'http://192.168.0.13/helper-cinefilia/movies.json',
     dataType: 'jsonp',
     jsonpCallback: 'cineffiliamoviescache',
     success: function(data){
       window.moviesData = data;
       populatePosters();
       populateMoviesList();
+      startTest();
     }
   });
   
   // Carregar informações dos cinemas
   $.ajax({
-    url: 'http://www.students.ic.unicamp.br/~ra108231/cinefilia_supreme_api/cinemas.json',
+    url: 'http://192.168.0.13/helper-cinefilia/cinemas.json',
     dataType: 'jsonp',
     jsonpCallback: 'cineffiliacinemascache',
     success: function(data){
@@ -94,7 +95,8 @@ $(document).ready(function(){
       }
 		})
 			
-  $(name="exit").click(function(){
+  $('[name="exit"]').click(function(){
+    alert('to saindo');
     navigator.app.exitApp()
   })
     
@@ -166,6 +168,7 @@ $(document).ready(function(){
 });
 
 var startTest = function() {
+      
 			$('body').imagesLoaded(function($images, $proper, $broken ) {
 
 				// see console output for debug info
@@ -188,8 +191,10 @@ var startTest = function() {
 
 if (typeof(cordova) !== 'undefined') {
   // cordova test
+  alert('to no cordova')
   document.addEventListener('deviceready', startTest, false);
 } else {
   // normal browser test
+  //alert('to no browser')
   $(document).ready(startTest);
 }
