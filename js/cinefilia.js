@@ -49,7 +49,7 @@ $(document).ready(function(){
 
   // Carregar informações dos filmes
   $.ajax({
-    url: 'http://143.106.205.207/helper-cinefilia/movies.json',
+    url: 'http://www.students.ic.unicamp.br/~ra108231/cinefilia_supreme_api/movies.json',
     dataType: 'jsonp',
     jsonpCallback: 'cineffiliamoviescache',
     success: function(data){
@@ -61,7 +61,7 @@ $(document).ready(function(){
   
   // Carregar informações dos cinemas
   $.ajax({
-    url: 'http://143.106.205.207/helper-cinefilia/cinemas.json',
+    url: 'http://www.students.ic.unicamp.br/~ra108231/cinefilia_supreme_api/cinemas.json',
     dataType: 'jsonp',
     jsonpCallback: 'cineffiliacinemascache',
     success: function(data){
