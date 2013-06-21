@@ -2,15 +2,15 @@
 <html>
   <head>
     <title>Cinefilia</title>
-    <link href='css/jquery.mobile-1.3.1.min.css' rel='stylesheet' type='text/css'>
+    <link href='css/jquerymobile131min.css' rel='stylesheet' type='text/css'>
     <link href='css/cinefilia.css' rel='stylesheet' type='text/css'>
-    <script src='js/jquery-2.0.2.min.js'></script>
-    <script charset='utf-8' src='js/jquery.mobile-1.3.1.min.js' type='application/x-javascript'></script>
+    <script src='js/jquery202min.js'></script>
+    <script charset='utf-8' src='js/jquerymobile131min.js' type='application/x-javascript'></script>
     <script src='js/swipe.js'></script>
     <script src='js/cinefilia.js'></script>
     <script src='js/imgcache.js'></script>
-    <script src='js/jquery.imagesloaded.min.js'></script>
-    <script src="phonegap.js"></script>
+    <script src='js/jqueryimagesloadedmin.js'></script>
+    <script src='js/cordova.js'></script>
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
     <meta name="viewport" content="width=device-width">
   </head>
@@ -106,13 +106,18 @@
     <div data-role='page' data-theme='a' id='movie_details'>
       <div data-role='header' data-id="header">
         <a href='#main_page' data-icon='home' data-iconpos="notext"></a>	
-        <h1>Cinefilia</h1>
+        <h1 id='gambira'>Cinefilia</h1>
         <a name='exit' href='#' data-icon='delete' data-iconpos="notext"></a>	
       </div>
       <div data-role='content'>
         <div class="ui-grid-solo">
           <div class="movies-details-breakpoint ui-block-a">
-            <h1 id="movie-title"></h1>
+            <table>
+              <tr>
+                <td><a id='add-fav-movie' href='#' data-role='button' data-icon='star' data-iconpos="notext"></a></td>
+                <td><h1 id="movie-title"></h1></td>
+              </tr>
+            </table>
           </div>
         </div>
         <div class="ui-grid-a">
@@ -174,19 +179,35 @@
           <a name='exit' href='#' data-icon='delete' data-iconpos="notext"></a>	
         </div>
         <div data-role='content'>
-          <div id='logo-cinema' width="30%" style='float:left' >
-            <!-- imagem pequena do logo do cinema-->
-            <img src='blank'/>
+          <div class="ui-grid-solo">
+            <div class="movies-details-breakpoint ui-block-a">
+			  <table>
+                <tr>
+                  <td><a id='add-fav-cinema' href='#' data-role='button' data-icon='star' data-iconpos="notext"></a></td>
+                  <td><h1 id="cinema-title"></h1></td>
+                </tr>
+              </table>
+            </div>
           </div>
-          <div id="cinema_info"  width='70%' style='float:left' >
-            <!-- Nome do cinema -->
-            <p><span id='cinema_name'>Kinoplex - Parque D.Pedro</span></p>
-            <!-- Endereço -->
-            <p><span id='cinema_address'>Rua da PQPlandia - Campinas - SP</span></p>
+          <div class="ui-grid-a">
+            <div class="cinemas-details-breakpoint mini-logo-container ui-block-a">
+              <img id='mini-logo' />
+            </div>
+            <div class="cinemas-details-breakpoint ui-block-b">
+              <table class='movie-info'>
+                <tr>
+                  <td>Endereço</td>
+                  <td id="address"></td>
+                </tr>
+                <tr>
+                  <td>Tabela de Preços</td>
+                  <td id="price"></td>
+                </tr>
+              </table>
+            </div>
           </div>
-          <div id='cinema_movies_list'>
-            <!-- listview com os posters dos filmes, nome, bolha de classificacao indicativa e bolha com DUB, LEG, NAC, se aplicavel -->
-          </div>
+          <ul id='cinema_movies_list' data-role="listview" data-inset="true">
+          </ul>
         </div>
         <div data-role='footer' data-id="footer">
           <div data-iconpos='left' data-role='navbar'>
