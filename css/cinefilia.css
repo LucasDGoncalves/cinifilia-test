@@ -1,5 +1,5 @@
 [data-role=page]{height: 100% !important; position:relative !important;}
-[data-role=footer]{bottom:0; position:absolute !important; top: auto !important; width:100%;}
+[data-role=footer]{bottom:0; position:fixed !important; top: auto !important; width:100%; z-index: 999;}
 
 .swipe {
   overflow: hidden;
@@ -16,9 +16,13 @@
   position: relative;
 }
 
-.movie-poster {
+.movie-poster, .mini-poster-container {
   text-align: center;
-  overflow: hidden;
+}
+
+.movie-poster > img {
+  border-radius: 1em 1em 1em 1em;
+  border: 1px solid #333333;
 }
 
 .retangular-movie-poster {
@@ -32,6 +36,45 @@
   border-radius: 1em 1em 1em 1em;
 }
 
+.movie-info > tbody > tr > td { 
+  background: repeat scroll 0 0 #5E87B0;
+  padding: 1px;
+}
+
+.movie-info > tbody > tr >  td + td { 
+  background: repeat scroll 0 0 #333333;
+}
+
 .ui-li-desc {
   overflow: visible;
+  white-space: normal;
+}
+
+.ui-content {
+  padding-bottom: 42px;
+}
+
+/* Tirar text-shadow para melhorar performance em androids antigos */
+.ui-body-a,
+.ui-bar-a,
+.ui-btn-up-a,
+.ui-btn-hover-a,
+.ui-btn-down-a,
+.ui-shadow-inset,
+.ui-icon-shadow,
+.ui-focus,
+.ui-overlay-shadow,
+.ui-shadow,
+.ui-btn-active {
+  text-shadow: none !important;
+  box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+}
+
+@media (max-width: 400px) {
+  .movies-details-breakpoint {
+    width: 100% !important;
+    float: none;
+  }
 }
